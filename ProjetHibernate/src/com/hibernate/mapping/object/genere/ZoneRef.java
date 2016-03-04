@@ -1,25 +1,33 @@
 package com.hibernate.mapping.object.genere;
 
-import com.hibernate.mapping.object.genere.base.BaseZoneRef;
+public class ZoneRef {
+	private int id;
+	private int zoneDebut;
+	private int zoneFin;
+	private float prix;
 
-
-
-public class ZoneRef extends BaseZoneRef {
-	private static final long serialVersionUID = 1L;
-
-/*[CONSTRUCTOR MARKER BEGIN]*/
-	public ZoneRef () {
-		super();
+	public int getId() {
+		return id;
 	}
-
-	/**
-	 * Constructor for primary key
-	 */
-	public ZoneRef (java.lang.Integer id) {
-		super(id);
+	public void setId(int id) {
+		this.id = id;
 	}
-
-/*[CONSTRUCTOR MARKER END]*/
-
-
+	public int getZoneDebut() {
+		return zoneDebut;
+	}
+	public void setZoneDebut(int zoneDebut) {
+		this.zoneDebut = zoneDebut;
+	}
+	public int getZoneFin() {
+		return zoneFin;
+	}
+	public void setZoneFin(int zoneFin) {
+		this.zoneFin = zoneFin;
+	}
+	public float getPrix() {
+		return prix;
+	}
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
 }

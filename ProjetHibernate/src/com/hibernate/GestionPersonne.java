@@ -17,6 +17,7 @@ import com.hibernate.mapping.object.genere.Personne;
 
 public class GestionPersonne {
 	public GestionPersonne(){}
+	
 	public void ajoutePersonne(Personne p)
 	{
 		Session session=HibernateUtil.currentSession();
@@ -26,26 +27,21 @@ public class GestionPersonne {
 		HibernateUtil.closeSession();
 	}
 	
-	public List getPersonne()
-	{
-		Session session=HibernateUtil.currentSession();
-		Transaction tx=session.beginTransaction();
-		Query query=session.createQuery("From Personne");		
+	public List getPersonne(){
+		Session session = HibernateUtil.currentSession();
+		Query query = session.createQuery("From Personne");
 		return query.list();
 	}
 	
-	public List getPersonneByCriteria(int ageMin)
-	{
+	public List getPersonneByCriteria(int ageMin){
 		Session session = HibernateUtil.currentSession();
-		Criteria critere=session.createCriteria(Personne.class);
-		critere.add(Restrictions.gt("Age",new Integer(ageMin)));
+		Criteria critere = session.createCriteria(Personne.class);
+		critere.add(Restrictions.gt("Age", ageMin));
 		return critere.list();
 	}
-	
-	public List getPersonneByQuery(int ageMin)
-	{
-		Session session=HibernateUtil.currentSession();
-		Query query=session.createQuery("From Personne where Age>"+ageMin);	
+	public List getPersonneByQuery(int ageMin){
+		Session session = HibernateUtil.currentSession();
+		Query query = session.createQuery("From Personne where Age > "+ ageMin);
 		return query.list();
 	}
 	
@@ -58,7 +54,8 @@ public class GestionPersonne {
 		p.setAdresse("45 avenue la couane 13600 La Ciotat");
 		p.setPrenom("Valentin");
 		ajout.ajoutePersonne(p);
-		List  mesPersonnes=ajout.getPersonne();
+		//List  mesPersonnes=ajout.getPersonne();
+		List mesPersonnes = ajout.getPersonneByCriteria(99);
 		Personne pTmp = null;
 		for (Iterator it=mesPersonnes.iterator();it.hasNext();)
 			{pTmp=(Personne) it.next();System.out.println(pTmp.getNom());}
