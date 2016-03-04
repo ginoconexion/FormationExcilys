@@ -55,7 +55,7 @@ public class GestionPersonne {
 		p.setPrenom("Valentin");
 		ajout.ajoutePersonne(p);
 		//List  mesPersonnes=ajout.getPersonne();
-		List mesPersonnes = ajout.getPersonneByCriteria(99);
+		List mesPersonnes = ajout.getPersonneByCriteria(11);
 		Personne pTmp = null;
 		for (Iterator it=mesPersonnes.iterator();it.hasNext();)
 			{pTmp=(Personne) it.next();System.out.println(pTmp.getNom());}
